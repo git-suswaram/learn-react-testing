@@ -11,23 +11,30 @@ const setup = (props = {}) => {
 describe("Test Header", () => {
   let component;
 
-  beforeEach(() => {
-    const props = {
-      branding: "Contact Manager"
-    };
-    component = setup({ ...props });
+  describe("Have No props", () => {
+    beforeEach(() => {
+      component = setup();
+    });
+
+    it("should render header with default Props", () => {
+      const wrapper = findByTestAttr(component, "branding-text");
+      expect(wrapper.length).toBe(1);
+      expect(wrapper.text()).toEqual("My App");
+    });
   });
 
-  it("should render header with default Props", () => {
-    const component = shallow(<Header />);
-    const wrapper = findByTestAttr(component, "branding-text");
-    expect(wrapper.length).toBe(1);
-    expect(wrapper.text()).toEqual("My App");
-  });
+  describe("Have props", () => {
+    beforeEach(() => {
+      const props = {
+        branding: "Contact Manager"
+      };
+      component = setup({ ...props });
+    });
 
-  it("should render header with Props passed by caller", () => {
-    const wrapper = findByTestAttr(component, "branding-text");
-    expect(wrapper.length).toBe(1);
-    expect(wrapper.text()).toEqual("Contact Manager");
+    it("should render header with Props passed by caller", () => {
+      const wrapper = findByTestAttr(component, "branding-text");
+      expect(wrapper.length).toBe(1);
+      expect(wrapper.text()).toEqual("Contact Manager");
+    });
   });
 });
