@@ -37,6 +37,14 @@ class AddContact extends Component {
     }
 
     this.props.submit(this.state);
+
+    this.setState({
+      name: "",
+      email: "",
+      phone: "",
+
+      submitActive: false
+    });
   };
 
   render() {
