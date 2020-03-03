@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TextInputGroup from "./layout/TextInputGroup";
+import TextInputGroup from "../layout/TextInputGroup";
 
 //Controlled Component
 class AddContact extends Component {
