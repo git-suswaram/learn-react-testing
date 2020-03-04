@@ -10,7 +10,7 @@ const TextInputGroup = ({
   onChange
 }) => {
   return (
-    <div className="form-group">
+    <div className="form-group" data-test='root-testInputGroup'>
       <label htmlFor={name}>{label}</label>
       <input
         className="form-control form-control-lg"
@@ -19,6 +19,7 @@ const TextInputGroup = ({
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        data-test="test-form-input"
       />
     </div>
   );
