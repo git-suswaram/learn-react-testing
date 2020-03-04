@@ -11,6 +11,8 @@ const setup = (props = {}) => {
 describe("Test Header", () => {
   let component;
 
+  /** ************************************************ */
+
   describe("Have No props", () => {
     beforeEach(() => {
       component = setup();
@@ -22,6 +24,8 @@ describe("Test Header", () => {
       expect(wrapper.text()).toEqual("My App");
     });
   });
+
+  /** ************************************************ */
 
   describe("Have props", () => {
     beforeEach(() => {
@@ -38,6 +42,8 @@ describe("Test Header", () => {
     });
   });
 
+  /** ************************************************ */
+
   describe("Do not depend on value of props", () => {
 
     beforeEach(() => {
@@ -50,7 +56,14 @@ describe("Test Header", () => {
       expect(wrapper.getElements()[0].props.children).toEqual("Home");
     });
 
+    it("has proper classes for root-nav", () => {
+      const wrapper = findByTestAttr(component, 'root-nav');
+      expect(wrapper.hasClass('navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0')).toBeTruthy();
+    })
+
   });
+
+/** ************************************************ */
 
   describe('Checking PropTypes', () => {
     it('should not throw a warning', () => {
