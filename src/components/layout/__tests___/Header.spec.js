@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Header from "./../Header";
-import { findByTestAttr } from "../../../../utils";
+import { findByTestAttr, checkProps } from "../../../../utils";
 
 const setup = (props = {}) => {
   const component = shallow(<Header {...props} />);
@@ -50,5 +50,15 @@ describe("Test Header", () => {
       expect(wrapper.getElements()[0].props.children).toEqual("Home");
     });
 
+  });
+
+  describe('Checking PropTypes', () => {
+    it('should not throw a warning', () => {
+      const expectedProps = {branding: 'Test Header'};
+      const propsErr = checkProps(Header, expectedProps);
+
+      expect(propsErr).toBeUndefined()
+
+    })
   });
 });
