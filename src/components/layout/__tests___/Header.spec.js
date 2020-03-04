@@ -37,4 +37,18 @@ describe("Test Header", () => {
       expect(wrapper.text()).toEqual("Contact Manager");
     });
   });
+
+  describe("Do not depend on value of props", () => {
+
+    beforeEach(() => {
+      component = setup();
+    });
+
+    it("renders home link", () => {
+      const wrapper = findByTestAttr(component, 'home-link');
+      expect(wrapper.getElements()[0].props.href).toEqual("/");
+      expect(wrapper.getElements()[0].props.children).toEqual("Home");
+    });
+
+  });
 });

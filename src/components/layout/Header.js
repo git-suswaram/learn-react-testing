@@ -14,7 +14,7 @@ const Header = props => {
       <div>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <a href="/" className="nav-link">Home</a>
+            <a href="/" className="nav-link" data-test="home-link">Home</a>
           </li>
         </ul>
       </div>
