@@ -91,4 +91,25 @@ describe("Test TextInputGroup", () => {
   
     });
   });
+
+  /** ************************************************ */
+
+  describe('Checking PropTypes', () => {
+    it('should not throw a warning', () => {
+
+      const expectedProps = {
+        label: "Test Label",
+        name: "Test Name",
+        value: "Test Value",
+        type: "text",
+        placeholder: "Enter Data...",
+        onChange: jest.fn()
+      };
+
+      const propsErr = checkProps(TextInputGroup, expectedProps);
+
+      expect(propsErr).toBeUndefined()
+
+    })
+  });
 });
