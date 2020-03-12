@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const TextInputGroup = ({
-  label,
+  label, 
   name,
   value,
   type,

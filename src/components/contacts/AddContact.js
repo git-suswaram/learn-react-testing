@@ -36,7 +36,13 @@ class AddContact extends Component {
       return;
     }
 
-    this.props.submit(this.state);
+    const submission = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+    };
+
+    this.props.submit(submission);
 
     this.setState({
       name: "",
@@ -50,16 +56,17 @@ class AddContact extends Component {
   render() {
     const { name, email, phone } = this.state;
     return (
-      <div className="card mb-3">
-        <div className="card-header">Add Contact</div>
-        <div className="card-body">
-          <form onSubmit={this.handleSubmit}>
+      <div className="card mb-3" data-test="addC-root-div">
+        <div className="card-header" data-test="addC-header">Add Contact</div>
+        <div className="card-body" data-test="addC-body">
+          <form onSubmit={this.handleSubmit} data-test="addC-form">
             <TextInputGroup
               label="Name"
               name="name"
               value={name}
               placeholder="Enter Name..."
               onChange={this.handleChange}
+              data-test="tig-name"
             />
 
             <TextInputGroup
@@ -69,6 +76,7 @@ class AddContact extends Component {
               type="email"
               placeholder="Enter Email..."
               onChange={this.handleChange}
+              data-test="tig-email"
             />
 
             <TextInputGroup
@@ -77,12 +85,14 @@ class AddContact extends Component {
               value={phone}
               placeholder="Enter Phone..."
               onChange={this.handleChange}
+              data-test="tig-phone"
             />
 
             <input
               type="submit"
               value="Add Contact"
               className="btn btn-dark btn-block"
+              data-test="addC-submit"
             />
           </form>
         </div>
