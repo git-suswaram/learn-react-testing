@@ -5,10 +5,6 @@ import AddContact from "./components/contacts/AddContact";
 
 class App extends Component {
 
-  // submit = submission => {
-  //   console.log(submission)
-  // }
-
   submit = submission => {
     console.log(submission);
   };
